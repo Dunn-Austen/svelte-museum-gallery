@@ -2,11 +2,11 @@
 	export let name;
 	import { onMount } from 'svelte';
 
-let photos = [];
+let galleryData = [];
 
 onMount(async () => {
-	const res = await fetch(`https://api.harvardartmuseums.org/RESOURCE_TYPE?apikey=Y27ab6e80-5caf-11ea-8c5a-cb60061dc4a9?size=100&page=5`);
-	photos = await res.json();
+	const res = await fetch(`https://api.harvardartmuseums.org/object?person=28241&apikey=e8318a20-5da1-11ea-b8c0-65473d792676`);
+	galleryData = await res.json();
 });
 </script>
 
