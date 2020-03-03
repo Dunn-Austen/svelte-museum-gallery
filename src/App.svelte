@@ -2,12 +2,17 @@
 	export let name;
 	import { onMount } from 'svelte';
 
-let galleryData = [];
+	let rembrandtData;
 
-onMount(async () => {
-	const res = await fetch(`https://api.harvardartmuseums.org/object?person=28241&apikey=e8318a20-5da1-11ea-b8c0-65473d792676`);
-	galleryData = await res.json();
-});
+	const fetchArtistData = async () => {
+		let res = await fetch(`https://api.harvardartmuseums.org/object?size=100&person=28241&apikey=e8318a20-5da1-11ea-b8c0-65473d792676`);
+		let galleryData = await res.json();
+		rembrandtData = galleryData.records
+	}
+
+	onMount(async () => {
+		await console.log('do not stress the api yet')
+	});
 </script>
 
 <main>
