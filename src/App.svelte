@@ -79,7 +79,7 @@
 	}
 
 	onMount(async () => {
-
+		fetchArtistData()
 	});
 </script>
 
@@ -107,8 +107,9 @@
 </main>
 
 <style>
+
 	body {
-		height: 100vh;
+		height: 100%;
 		margin: 0px;
 		padding: 0px;
 	}
@@ -120,13 +121,15 @@
 
 	header {
 		background-color: red;
-		height: 10vh
+		height: 10%
 	}
 
 	h1 {
 		color: black;
 		text-transform: uppercase;
 		font-size: 30px;
+		margin: 0;
+		padding: 0;
 		text-align: center;
 	}
 
@@ -135,7 +138,7 @@
 		background-color: yellow;
 		display: flex;
 		flex-direction: column;
-		height: 90vh;
+		height: 90%;
 		justify-content: space-around;
 	}
 
@@ -148,16 +151,22 @@
 	}
 
 	.inner-container {
+		align-items: center;
 		background-color: orange;
 		box-shadow: 0px 1.5px 9px 1px black;
-		height: 70vh;
+		display: flex;
+		flex-wrap: wrap;
+		height: 70%;
+		justify-content: space-around;
+		overflow: scroll;
 		width: 85%;
 	}
 
-	.gallery-item{
-		border: 2px solid black;
+	.gallery-item {
 		background-color: white;
+		border: 2px solid black;
 		height: 200px;
+		margin: 10px;
 		width: 150px;
 	}
 
@@ -168,5 +177,12 @@
 		width: 120px;
 	}
 
+	h2 {
+		color: black;
+		font-size: 16px;
+		margin: 0;
+		padding: 0;
+		text-align: center;
+	}
 
 </style>
