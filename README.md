@@ -19,8 +19,14 @@ Then,
 Navigate to [localhost:5000](http://localhost:5000). You should see your app running. 
 
 ### App Demo
-
+**Mobile:**
 ![2020-03-04 09 31 47](https://user-images.githubusercontent.com/42498559/75901084-3d9b8c00-5dfb-11ea-80fb-a24fbca1c85a.gif)
+
+**Fullscreen**
+
+![image](https://user-images.githubusercontent.com/42498559/75902051-adf6dd00-5dfc-11ea-8e03-dae6629ffeab.png)
+
+
 
 
 ### Initial Wireframe
