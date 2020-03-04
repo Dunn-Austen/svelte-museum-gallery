@@ -102,7 +102,11 @@
 			<button class='mezzotints' value='mezzotint' on:click|once={setCurrentData(event)}> Mezzotints </button>
 		</div>
 		<section class='inner-container'>
-			{#each}
+			{#each currentData as {primaryimageurl, title}}
+				<div class='art-card'>
+					<h1>{title}</h1>
+					<img class='art-image' src={primaryimageurl} alt={title} height="45" width="45">
+				</div>
 			{/each}
 		</section>
 	</section>
