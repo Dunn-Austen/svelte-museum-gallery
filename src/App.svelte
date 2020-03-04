@@ -120,7 +120,7 @@
 	}
 
 	header {
-		background-color: red;
+		background-color: #938876;
 		height: 10%
 	}
 
@@ -135,7 +135,7 @@
 
 	.outer-container {
 		align-items: center;
-		background-color: yellow;
+		background-color: #4E4B46;
 		display: flex;
 		flex-direction: column;
 		height: 90%;
@@ -152,7 +152,8 @@
 
 	.inner-container {
 		align-items: center;
-		background-color: orange;
+		background-color: #BAA688;
+		border: 4px ridge black;
 		box-shadow: 0px 1.5px 9px 1px black;
 		display: flex;
 		flex-wrap: wrap;
@@ -163,25 +164,29 @@
 	}
 
 	.gallery-item {
-		background-color: white;
+		align-items: center;
+		background-color: #292421;
 		border: 2px solid black;
-		height: 200px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-evenly;
+		height: 310px;
 		margin: 10px;
-		width: 150px;
+		width: 250px;
 	}
 
 	.gallery-image {
 		border: 2px solid black;
-		background-color: white;
-		height: 160px;
-		width: 120px;
+		height: 200px;
+		width: 170px;
 	}
 
 	h2 {
-		color: black;
+		color: white;
 		font-size: 16px;
+		height: 55px;
 		margin: 0;
-		padding: 0;
+		padding: 0 2px;
 		text-align: center;
 	}
 
