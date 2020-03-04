@@ -3,11 +3,27 @@
 	import { onMount } from 'svelte';
 
 	let rembrandtData = [];
+	let engravingData = [];
+	let etchingData = [];
+	let drypointData = [];
+	let mezzotintData = [];
 
 	const formatData = (data) => {
 		data.forEach(datum => {
 			if (datum.technique !== null) {
 				rembrandtData.push(datum)
+			}
+			if (datum.technique && datum.technique.toLowerCase().includes('engraving')) {
+				engravingData.push(datum)
+			}
+			if (datum.technique && datum.technique.toLowerCase().includes('etching')) {
+				etchingData.push(datum)
+			}
+			if (datum.technique && datum.technique.toLowerCase().includes('drypoint')) {
+				drypointData.push(datum)
+			}
+			if (datum.technique && datum.technique.toLowerCase().includes('mezzotint')) {
+				mezzotintData.push(datum)
 			}
 		})
 	}
@@ -42,10 +58,14 @@
 		formatData(galleryData7.records);
 
 		console.log(rembrandtData)
+		console.log(drypointData)
+		console.log(engravingData)
+		console.log(etchingData)
+		console.log(mezzotintData)
 	}
 
 	onMount(async () => {
-		fetchArtistData()
+		console.log('dont wear out the API')
 	});
 </script>
 
