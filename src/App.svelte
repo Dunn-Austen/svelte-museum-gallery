@@ -20,6 +20,9 @@
 	}
 
 	cont setCurrentData = (event) => {
+		if (event.target.value === 'rembrandt') {
+			currentData = rembrandtData
+		}
 		if (event.target.value === 'engraving') {
 			currentData = engravingData
 		}
@@ -101,8 +104,16 @@
 	<header>
 	</header>
 	<section class='outer-container'>
+		<div class=btn-container>
+			<button class='all' value='rembrandt' on:click|once={setCurrentData(event)}> All Styles </button>
+			<button class='engravings' value='engraving' on:click|once={setCurrentData(event)}> Engravings </button>
+			<button class='etchings' value='etching' on:click|once={setCurrentData(event)}> Etchings </button>
+			<button class='drypoints' value='drypoint' on:click|once={setCurrentData(event)}> Drypoints </button>
+			<button class='mezzotints' value='mezzotint' on:click|once={setCurrentData(event)}> Mezzotints </button>
+		</div>
 		<section class='inner-container'>
 			{#each}
+			{/each}
 		</section>
 	</section>
 </main>
