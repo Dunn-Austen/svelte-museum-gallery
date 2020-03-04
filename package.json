@@ -4,7 +4,7 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "start": "sirv public".
+    "start": "sirv public",
     "test": "jest src",
     "test:watch": "npm run test -- --watch"
   },
@@ -17,7 +17,16 @@
     "rollup-plugin-livereload": "^1.0.0",
     "rollup-plugin-svelte": "^5.0.3",
     "rollup-plugin-terser": "^5.1.2",
-    "svelte": "^3.0.0"
+    "svelte": "^3.0.0",
+    "jest": {
+      "transform": {
+        "^.+\\.svelte$": "svelte-jester"
+      },
+      "setupFilesAfterEnv": [
+        "@testing-library/jest-dom/extend-expect"
+      ],
+      "moduleFileExtensions": ["js", "svelte"]
+    }
   },
   "dependencies": {
     "sirv-cli": "^0.4.4"
