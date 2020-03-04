@@ -7,6 +7,7 @@
 	let etchingData = [];
 	let drypointData = [];
 	let mezzotintData = [];
+	let currentData = rembrandtData;
 
 	const showData = (techniqueData) => {
 		techniqueData.map(datum => {
@@ -16,6 +17,23 @@
 				</div>
 			)
 		})
+	}
+
+	cont setCurrentData = (event) => {
+		if (event.target.value === 'engraving') {
+			currentData = engravingData
+		}
+		if (event.target.value === 'etching') {
+			currentData = etchingData
+		}
+		if (event.target.value === 'drypoint') {
+			currentData = drypointData
+			currentData = drypointData
+		}
+		if (event.target.value === 'mezzotint') {
+			currentData = drypointData
+			currentData = mezzotintData
+		}
 	}
 
 	const formatData = (data) => {
@@ -84,7 +102,7 @@
 	</header>
 	<section class='outer-container'>
 		<section class='inner-container'>
-
+			{#each}
 		</section>
 	</section>
 </main>
