@@ -89,11 +89,11 @@
 	</header>
 	<section class='outer-container'>
 		<div class='btn-container'>
-			<button class='all' value='rembrandt' on:click|preventDefault={(event) => setCurrentData(event)}> All Styles </button>
-			<button class='engravings' value='engraving' on:click|preventDefault={(event) => setCurrentData(event)}> Engravings </button>
-			<button class='etchings' value='etching' on:click|preventDefault={(event) => setCurrentData(event)}> Etchings </button>
-			<button class='drypoints' value='drypoint' on:click|preventDefault={(event) => setCurrentData(event)}> Drypoints </button>
-			<button class='mezzotints' value='mezzotint' on:click|preventDefault={(event) => setCurrentData(event)}> Mezzotints </button>
+			<button class='all btn' value='rembrandt' on:click|preventDefault={(event) => setCurrentData(event)}> All Styles </button>
+			<button class='engravings btn' value='engraving' on:click|preventDefault={(event) => setCurrentData(event)}> Engravings </button>
+			<button class='etchings btn' value='etching' on:click|preventDefault={(event) => setCurrentData(event)}> Etchings </button>
+			<button class='drypoints btn' value='drypoint' on:click|preventDefault={(event) => setCurrentData(event)}> Drypoints </button>
+			<button class='mezzotints btn' value='mezzotint' on:click|preventDefault={(event) => setCurrentData(event)}> Mezzotints </button>
 		</div>
 		<section class='inner-container'>
 			{#each currentData as datum}
@@ -120,22 +120,32 @@
 	}
 
 	header {
+		align-items: center;
 		background-color: #938876;
-		height: 10%
+		border-bottom: 2px inset black;
+		display: flex;
+		height: 10%;
+		justify-content: center;
 	}
 
 	h1 {
 		color: black;
-		text-transform: uppercase;
-		font-size: 30px;
+		font-family: 'Merienda One', cursive;
+		font-size: 35px;
 		margin: 0;
 		padding: 0;
 		text-align: center;
+		text-shadow: 0 1px 1px black;
+		text-transform: uppercase;
 	}
 
 	.outer-container {
 		align-items: center;
 		background-color: #4E4B46;
+		background: linear-gradient(rgba(0, 0, 0.5, 0.5), rgba(0, 0.1, 0.1, 0.1)), url('https://d1nn9x4fgzyvn4.cloudfront.net/styles/576x432/s3/migration-slide-image/Rembrandt_conservation_4x3.jpg?itok=WjGTQIie');
+		background-blend-mode: lighten saturation;
+		background-repeat: no-repeat;
+		background-size: 100% 100%;
 		display: flex;
 		flex-direction: column;
 		height: 90%;
@@ -150,11 +160,30 @@
 		width: 95%;
 	}
 
+	.btn {
+		background-color: #56533F;
+		box-shadow: 0px 5.5px 5px 5px #2d2c2a;
+		color: white;
+		border-radius: 15px;
+		font-family: 'Lobster Two', cursive;
+		font-size: 18px;
+		margin: 0;
+		padding: 6px 1.5px;
+		font-weight: bold;
+	}
+
+	.btn:hover {
+		background-color: #6b674f;
+		border: 1.5px inset white;
+		box-shadow: 0px 3px 3px 3px black;
+		box-sizing: border-box;
+	}
+
 	.inner-container {
 		align-items: center;
 		background-color: #BAA688;
-		border: 4px ridge black;
-		box-shadow: 0px 1.5px 9px 1px black;
+		border: 8px ridge #191E22;
+		box-shadow: 0px 5.5px 5px 5px #2d2c2a;
 		display: flex;
 		flex-wrap: wrap;
 		height: 70%;
@@ -166,7 +195,9 @@
 	.gallery-item {
 		align-items: center;
 		background-color: #292421;
-		border: 2px solid black;
+		border: 5px solid #938876;
+		box-shadow: 0px 5.5px 5px 5px #2d2c2a;
+		box-sizing: border-box;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-evenly;
@@ -184,6 +215,7 @@
 	h2 {
 		color: white;
 		font-size: 16px;
+		font-family: 'Lobster Two', cursive;
 		height: 55px;
 		margin: 0;
 		padding: 0 2px;
