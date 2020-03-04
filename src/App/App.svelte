@@ -1,4 +1,5 @@
 <script>
+	export let name;
 	import { onMount } from 'svelte';
 
 	let rembrandtData = [];
@@ -85,7 +86,7 @@
 
 <main>
 	<header>
-		<h1>Rembrandt</h1>
+		<h1>{name}</h1>
 	</header>
 	<section class='outer-container'>
 		<div class='btn-container'>
