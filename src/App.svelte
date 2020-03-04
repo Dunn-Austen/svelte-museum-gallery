@@ -8,6 +8,16 @@
 	let drypointData = [];
 	let mezzotintData = [];
 
+	const showData = (techniqueData) => {
+		techniqueData.map(datum => {
+			return (
+				<div class='art-card'>
+					<image src=
+				</div>
+			)
+		})
+	}
+
 	const formatData = (data) => {
 		data.forEach(datum => {
 			if (datum.technique !== null) {
@@ -70,7 +80,13 @@
 </script>
 
 <main>
+	<header>
+	</header>
+	<section class='outer-container'>
+		<section class='inner-container'>
 
+		</section>
+	</section>
 </main>
 
 <style>
