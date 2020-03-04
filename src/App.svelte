@@ -1,13 +1,47 @@
 <script>
-	export let name;
 	import { onMount } from 'svelte';
 
 	let rembrandtData = [];
+	let engravingData = [];
+	let etchingData = [];
+	let drypointData = [];
+	let mezzotintData = [];
+	let currentData = rembrandtData;
+
+	const setCurrentData = (event) => {
+		if (event.target.value === 'rembrandt') {
+			currentData = rembrandtData
+		}
+		if (event.target.value === 'engraving') {
+			currentData = engravingData
+		}
+		if (event.target.value === 'etching') {
+			currentData = etchingData
+		}
+		if (event.target.value === 'drypoint') {
+			currentData = drypointData
+		}
+		if (event.target.value === 'mezzotint') {
+			currentData = mezzotintData
+		}
+	}
 
 	const formatData = (data) => {
 		data.forEach(datum => {
 			if (datum.technique !== null) {
 				rembrandtData.push(datum)
+			}
+			if (datum.technique && datum.technique.toLowerCase().includes('engraving')) {
+				engravingData.push(datum)
+			}
+			if (datum.technique && datum.technique.toLowerCase().includes('etching')) {
+				etchingData.push(datum)
+			}
+			if (datum.technique && datum.technique.toLowerCase().includes('drypoint')) {
+				drypointData.push(datum)
+			}
+			if (datum.technique && datum.technique.toLowerCase().includes('mezzotint')) {
+				mezzotintData.push(datum)
 			}
 		})
 	}
@@ -41,7 +75,7 @@
 		let galleryData7 = await res7.json();
 		formatData(galleryData7.records);
 
-		console.log(rembrandtData)
+		console.log('current', currentData)
 	}
 
 	onMount(async () => {
@@ -50,19 +84,105 @@
 </script>
 
 <main>
-
+	<header>
+		<h1>Rembrandt</h1>
+	</header>
+	<section class='outer-container'>
+		<div class='btn-container'>
+			<button class='all' value='rembrandt' on:click|preventDefault={(event) => setCurrentData(event)}> All Styles </button>
+			<button class='engravings' value='engraving' on:click|preventDefault={(event) => setCurrentData(event)}> Engravings </button>
+			<button class='etchings' value='etching' on:click|preventDefault={(event) => setCurrentData(event)}> Etchings </button>
+			<button class='drypoints' value='drypoint' on:click|preventDefault={(event) => setCurrentData(event)}> Drypoints </button>
+			<button class='mezzotints' value='mezzotint' on:click|preventDefault={(event) => setCurrentData(event)}> Mezzotints </button>
+		</div>
+		<section class='inner-container'>
+			{#each currentData as datum}
+				<div class='gallery-item'>
+					<h2>{datum.title}</h2>
+					<img class='gallery-image' src={datum.primaryimageurl} alt={datum.title}>
+				</div>
+			{/each}
+		</section>
+	</section>
 </main>
 
 <style>
+
+	body {
+		height: 100%;
+		margin: 0px;
+		padding: 0px;
+	}
+
 	main {
-		text-align: center
+		height: 100%;
+		width: 100%;
+	}
+
+	header {
+		background-color: red;
+		height: 10%
 	}
 
 	h1 {
-		color: #ff3e00;
+		color: black;
 		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
+		font-size: 30px;
+		margin: 0;
+		padding: 0;
+		text-align: center;
+	}
+
+	.outer-container {
+		align-items: center;
+		background-color: yellow;
+		display: flex;
+		flex-direction: column;
+		height: 90%;
+		justify-content: space-around;
+	}
+
+	.btn-container {
+		align-items: center;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		width: 95%;
+	}
+
+	.inner-container {
+		align-items: center;
+		background-color: orange;
+		box-shadow: 0px 1.5px 9px 1px black;
+		display: flex;
+		flex-wrap: wrap;
+		height: 70%;
+		justify-content: space-around;
+		overflow: scroll;
+		width: 85%;
+	}
+
+	.gallery-item {
+		background-color: white;
+		border: 2px solid black;
+		height: 200px;
+		margin: 10px;
+		width: 150px;
+	}
+
+	.gallery-image {
+		border: 2px solid black;
+		background-color: white;
+		height: 160px;
+		width: 120px;
+	}
+
+	h2 {
+		color: black;
+		font-size: 16px;
+		margin: 0;
+		padding: 0;
+		text-align: center;
 	}
 
 </style>
