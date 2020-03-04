@@ -96,12 +96,18 @@
 			<button class='mezzotints btn' value='mezzotint' on:click|preventDefault={(event) => setCurrentData(event)}> Mezzotints </button>
 		</div>
 		<section class='inner-container'>
-			{#each currentData as datum}
-				<div class='gallery-item'>
-					<h2>{datum.title}</h2>
-					<img class='gallery-image' src={datum.primaryimageurl} alt={datum.title}>
+			{#if !currentData.length}
+				<div>
+				Please select a field
 				</div>
-			{/each}
+			{:else}
+				{#each currentData as datum}
+					<div class='gallery-item'>
+						<h2>{datum.title}</h2>
+						<img class='gallery-image' src={datum.primaryimageurl} alt={datum.title}>
+					</div>
+				{/each}
+			{/if}
 		</section>
 	</section>
 </main>
