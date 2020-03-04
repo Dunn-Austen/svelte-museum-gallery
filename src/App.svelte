@@ -9,16 +9,6 @@
 	let mezzotintData = [];
 	let currentData = rembrandtData;
 
-	const showData = (techniqueData) => {
-		techniqueData.map(datum => {
-			return (
-				<div class='art-card'>
-					<image src=
-				</div>
-			)
-		})
-	}
-
 	cont setCurrentData = (event) => {
 		if (event.target.value === 'rembrandt') {
 			currentData = rembrandtData
