@@ -96,10 +96,10 @@
 			<button class='mezzotints' value='mezzotint' on:click|preventDefault={(event) => setCurrentData(event)}> Mezzotints </button>
 		</div>
 		<section class='inner-container'>
-			{#each currentData as {primaryimageurl, title}}
-				<div class='art-card'>
-					<h2>{title}</h2>
-					<img class='art-image' src={primaryimageurl} alt={title} height="45" width="45">
+			{#each currentData as datum}
+				<div class='gallery-item'>
+					<h2>{datum.title}</h2>
+					<img class='gallery-image' src={datum.primaryimageurl} alt={datum.title}>
 				</div>
 			{/each}
 		</section>
@@ -107,30 +107,20 @@
 </main>
 
 <style>
-	main {
+	body {
 		height: 100vh;
+		margin: 0px;
+		padding: 0px;
+	}
+
+	main {
+		height: 100%;
+		width: 100%;
 	}
 
 	header {
 		background-color: red;
 		height: 10vh
-	}
-
-	.outer-container {
-		background-color: yellow;
-		height: 90vh;
-	}
-
-	.btn-container {
-		align-items: center;
-		display: flex;
-		flex-direction: row;
-		justify-content: space-around;
-	}
-
-	.inner-container {
-		background-color: orange;
-		height: 90vh;
 	}
 
 	h1 {
@@ -139,5 +129,44 @@
 		font-size: 30px;
 		text-align: center;
 	}
+
+	.outer-container {
+		align-items: center;
+		background-color: yellow;
+		display: flex;
+		flex-direction: column;
+		height: 90vh;
+		justify-content: space-around;
+	}
+
+	.btn-container {
+		align-items: center;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		width: 95%;
+	}
+
+	.inner-container {
+		background-color: orange;
+		box-shadow: 0px 1.5px 9px 1px black;
+		height: 70vh;
+		width: 85%;
+	}
+
+	.gallery-item{
+		border: 2px solid black;
+		background-color: white;
+		height: 200px;
+		width: 150px;
+	}
+
+	.gallery-image {
+		border: 2px solid black;
+		background-color: white;
+		height: 160px;
+		width: 120px;
+	}
+
 
 </style>
