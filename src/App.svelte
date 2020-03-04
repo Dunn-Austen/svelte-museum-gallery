@@ -75,23 +75,20 @@
 		let galleryData7 = await res7.json();
 		formatData(galleryData7.records);
 
-		console.log(rembrandtData)
-		console.log(drypointData)
-		console.log(engravingData)
-		console.log(etchingData)
-		console.log(mezzotintData)
+		console.log('current', currentData)
 	}
 
 	onMount(async () => {
-		fetchArtistData()
+
 	});
 </script>
 
 <main>
 	<header>
+		<h1>Rembrandt</h1>
 	</header>
 	<section class='outer-container'>
-		<div class=btn-container>
+		<div class='btn-container'>
 			<button class='all' value='rembrandt' on:click|preventDefault={(event) => setCurrentData(event)}> All Styles </button>
 			<button class='engravings' value='engraving' on:click|preventDefault={(event) => setCurrentData(event)}> Engravings </button>
 			<button class='etchings' value='etching' on:click|preventDefault={(event) => setCurrentData(event)}> Etchings </button>
@@ -101,7 +98,7 @@
 		<section class='inner-container'>
 			{#each currentData as {primaryimageurl, title}}
 				<div class='art-card'>
-					<h1>{title}</h1>
+					<h2>{title}</h2>
 					<img class='art-image' src={primaryimageurl} alt={title} height="45" width="45">
 				</div>
 			{/each}
@@ -111,14 +108,36 @@
 
 <style>
 	main {
-		text-align: center
+		height: 100vh;
+	}
+
+	header {
+		background-color: red;
+		height: 10vh
+	}
+
+	.outer-container {
+		background-color: yellow;
+		height: 90vh;
+	}
+
+	.btn-container {
+		align-items: center;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+	}
+
+	.inner-container {
+		background-color: orange;
+		height: 90vh;
 	}
 
 	h1 {
-		color: #ff3e00;
+		color: black;
 		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
+		font-size: 30px;
+		text-align: center;
 	}
 
 </style>
