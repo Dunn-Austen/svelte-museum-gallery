@@ -1,5 +1,4 @@
 <script>
-	export let name;
 	import { onMount } from 'svelte';
 
 	let rembrandtData = [];
@@ -9,7 +8,7 @@
 	let mezzotintData = [];
 	let currentData = rembrandtData;
 
-	cont setCurrentData = (event) => {
+	const setCurrentData = (event) => {
 		if (event.target.value === 'rembrandt') {
 			currentData = rembrandtData
 		}
@@ -21,10 +20,8 @@
 		}
 		if (event.target.value === 'drypoint') {
 			currentData = drypointData
-			currentData = drypointData
 		}
 		if (event.target.value === 'mezzotint') {
-			currentData = drypointData
 			currentData = mezzotintData
 		}
 	}
@@ -86,7 +83,7 @@
 	}
 
 	onMount(async () => {
-		console.log('dont wear out the API')
+		fetchArtistData()
 	});
 </script>
 
@@ -95,11 +92,11 @@
 	</header>
 	<section class='outer-container'>
 		<div class=btn-container>
-			<button class='all' value='rembrandt' on:click|once={setCurrentData(event)}> All Styles </button>
-			<button class='engravings' value='engraving' on:click|once={setCurrentData(event)}> Engravings </button>
-			<button class='etchings' value='etching' on:click|once={setCurrentData(event)}> Etchings </button>
-			<button class='drypoints' value='drypoint' on:click|once={setCurrentData(event)}> Drypoints </button>
-			<button class='mezzotints' value='mezzotint' on:click|once={setCurrentData(event)}> Mezzotints </button>
+			<button class='all' value='rembrandt' on:click|preventDefault={(event) => setCurrentData(event)}> All Styles </button>
+			<button class='engravings' value='engraving' on:click|preventDefault={(event) => setCurrentData(event)}> Engravings </button>
+			<button class='etchings' value='etching' on:click|preventDefault={(event) => setCurrentData(event)}> Etchings </button>
+			<button class='drypoints' value='drypoint' on:click|preventDefault={(event) => setCurrentData(event)}> Drypoints </button>
+			<button class='mezzotints' value='mezzotint' on:click|preventDefault={(event) => setCurrentData(event)}> Mezzotints </button>
 		</div>
 		<section class='inner-container'>
 			{#each currentData as {primaryimageurl, title}}
