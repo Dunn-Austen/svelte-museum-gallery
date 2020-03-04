@@ -91,3 +91,9 @@ Then, from within your project folder:
 npm run build
 surge public my-project.surge.sh
 ```
+
+
+###Initial Wireframe
+
+![image](https://user-images.githubusercontent.com/42498559/75834277-c9200900-5d78-11ea-84fc-6047be590424.png)
+
