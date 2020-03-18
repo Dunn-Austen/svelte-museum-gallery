@@ -6,6 +6,7 @@ This app represents a mock take-home challenge. The task was to fabricate an app
 - CSS
 - HTML
 - Svelte
+- Deployed with Surge
 
 ## Get started
 
